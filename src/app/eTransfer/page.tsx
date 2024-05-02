@@ -1,6 +1,6 @@
 import React from "react";
 import Main_Etransfer from "./components/Main_Etransfer";
-import SideNavBar from "@/app/components/SideNavBar";
+import SideNavBar from "@/app/common/components/SideNavBar";
 
 export default function page() {
   return (

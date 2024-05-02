@@ -3,7 +3,20 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios, { Axios, AxiosError } from "axios";
-import { toast } from "react-hot-toast";
+
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = (msg: string) =>
+  toast(msg, {
+    duration: 3000,
+    style: {
+      borderRadius: "10px",
+      background: "#444",
+      color: "#fff",
+      width: "400px",
+      fontFamily: "sans-serif",
+    },
+  });
 
 export default function SigninPage() {
   const router = useRouter();
@@ -13,12 +26,18 @@ export default function SigninPage() {
   const [loginPasscode, setLoginPasscode] = useState({ loginPasscode: "" });
 
   const handle_Login = async () => {
-    console.log("loginPasscode client", loginPasscode);
+    
+
+    if (!loginPasscode.loginPasscode) {
+      notify("Login failed: \n\n Wrong Password");
+    }
+
     try {
       setLoading(true);
       const response = await axios.post("api/login", loginPasscode);
 
       console.log("Login successfully", response.data);
+
       //toast.success("Login successfully");
       router.push("/bmo-run");
     } catch (error) {
@@ -27,11 +46,13 @@ export default function SigninPage() {
       console.log("err.message---", err.message);
 
       if (err.message.toString().includes("401")) {
-        alert("Login failed: -- User Not Exists");
+        //alert("Login failed: -- User Not Exists");
+        notify("");
       }
 
       if (err.message.toString().includes("402")) {
-        alert("Login failed: -- Wrong Password");
+        //alert("Login failed: -- Wrong Password");
+        notify("Login failed: \n\n Wrong Password");
       }
 
       //toast.error(error);
@@ -53,37 +74,31 @@ export default function SigninPage() {
       className="flex items-center justify-center min-h-screen py-2 bg-slate-500 font-extralight 
     bg-[url('https://source.unsplash.com/random/900%C3%97700/?banff')] bg-center bg-no-repeat bg-cover"
     >
-      <section className="h-[500px] w-[1000px] bg-white bg-opacity-70 rounded-3xl">
-        <div className="container h-full px-20 py-24">
-          <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
-            <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
-              <img
-                src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                className="w-full"
-                alt="Phone image"
-              />
-            </div>
+      <section className="h-[400px] w-[1000px] bg-white bg-opacity-70 rounded-3xl">
+        <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+          <div className="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
+            <img src="/draw2.svg" className="w-full" alt="Phone image" />
+          </div>
 
-            <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
-              <form action={handle_Login}>
-                <div className="relative mb-6" data-te-input-wrapper-init>
-                  <input
-                    type="password"
-                    className=" placeholder-slate-300 text-blue-600 p-3 w-full h-[50px] rounded-lg font-light"
-                    id="loginPasscode"
-                    name="loginPasscode"
-                    placeholder="Passcode"
-                    required
-                    onChange={(e) => {
-                      setLoginPasscode({
-                        ...loginPasscode,
-                        loginPasscode: e.target.value,
-                      });
-                    }}
-                  />
-                </div>
-
-                <div className="mb-6 flex items-center justify-between"></div>
+          <div className="md:w-8/12 lg:ml-6 lg:w-5/12 p-3">
+            <form action={handle_Login} className="">
+              <div
+                className="relative mb-6 border-0 w-[300px] space-y-6"
+                data-te-input-wrapper-init
+              >
+                <input
+                  type="password"
+                  className=" placeholder-slate-300 text-blue-600 p-3 w-full h-[50px] rounded-lg font-light"
+                  id="loginPasscode"
+                  name="loginPasscode"
+                  placeholder="Passcode"
+                  onChange={(e) => {
+                    setLoginPasscode({
+                      ...loginPasscode,
+                      loginPasscode: e.target.value,
+                    });
+                  }}
+                />
 
                 <button
                   type="submit"
@@ -91,11 +106,12 @@ export default function SigninPage() {
                 >
                   Sign in
                 </button>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
       </section>
+      <Toaster />
     </div>
   );
 }

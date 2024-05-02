@@ -19,6 +19,7 @@ const notify = (msg: string) =>
   });
 
 export default function SigninPage() {
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const router = useRouter();
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -26,14 +27,14 @@ export default function SigninPage() {
   const [loginPasscode, setLoginPasscode] = useState({ loginPasscode: "" });
 
   const handle_Login = async () => {
-    
-
-    if (!loginPasscode.loginPasscode) {
-      notify("Login failed: \n\n Wrong Password");
-    }
-
     try {
       setLoading(true);
+      if (loginPasscode.loginPasscode.toString() === "") {
+        notify("Please enter the Passcode. ");
+        inputRef.current && inputRef.current.focus();
+        return;
+      }
+
       const response = await axios.post("api/login", loginPasscode);
 
       console.log("Login successfully", response.data);
@@ -53,6 +54,7 @@ export default function SigninPage() {
       if (err.message.toString().includes("402")) {
         //alert("Login failed: -- Wrong Password");
         notify("Login failed: \n\n Wrong Password");
+        inputRef.current && inputRef.current.focus();
       }
 
       //toast.error(error);
@@ -88,6 +90,7 @@ export default function SigninPage() {
               >
                 <input
                   type="password"
+                  ref={inputRef}
                   className=" placeholder-slate-300 text-blue-600 p-3 w-full h-[50px] rounded-lg font-light"
                   id="loginPasscode"
                   name="loginPasscode"

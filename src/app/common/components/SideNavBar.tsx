@@ -44,11 +44,20 @@ const navItems = [
     itemIconPathD:
       "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9",
   },
+
+  {
+    itemTitle: "Logout",
+    itemLink: "/logout",
+    itemBgColor: "bg-blue-500",
+    itemIconPathD:
+      "M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1",
+  },
+
 ];
 
 export default function SideNavBar() {
   return (
-    <div className="h-full w-64  flex flex-col bg-gray-300 text-gray-800 border-2 border-red-200">
+    <div className="h-full w-64  flex flex-col bg-gray-300 text-gray-800 border-0 border-orange-100">
       <div className="flex flex-col top-0 left-0 w-64 bg-white h-full border-r  text-gray-800 ">
         <div className="flex items-center justify-center h-14 border-b text-gray-800 ">
           <div>Sidebar Navigation</div>

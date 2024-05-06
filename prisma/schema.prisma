@@ -1,42 +1,8 @@
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["multiSchema"]
-  
 }
 
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
-  schemas  = ["base", "transactional"]
 }
-
-
-
-model tbl_BMORun2024_Barrage {
-  ID           Int      @id @default(autoincrement())
-  donor_Fname  String?  @db.VarChar(20)
-  donor_Lname  String?  @db.VarChar(20)
-  donor_Org    String?  @db.VarChar(50)
-  donor_Amount Decimal? @db.Decimal(10, 2)
-  createdAt    String   @db.VarChar(20)
-
-  
-}
-
-model tbl_ETransferInfo {
-  id          Int      @id @default(autoincrement())
-  fname       String   @db.VarChar(100)
-  lname       String   @db.VarChar(100)
-  userAddress String   @db.VarChar(200)
-  userTel     String   @db.VarChar(20)
-  useremail   String   @db.VarChar(100)
-  todaydate   DateTime @db.Date
-  RegDate     DateTime @db.Date
-  RegTime     DateTime @db.Time(0)
-  userIP      String   @db.VarChar(20)
-
-    
-}
-
-
-

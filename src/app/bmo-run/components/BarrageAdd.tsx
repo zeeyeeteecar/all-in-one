@@ -1,6 +1,6 @@
 import React from "react";
 import { redirect } from "next/navigation";
-import { prisma } from "@/lib/db";
+import { prisma_Mysql } from "@/lib/lib";
 import moment from "moment";
 import { revalidatePath } from "next/cache";
 import Image from "next/image";
@@ -15,7 +15,8 @@ export default function BarrageAdd() {
     const donor_Amount = data.get("donor_Amount")?.valueOf().toString();
     const createdAt = moment().format("YYYY-MM-DD hh:mm:ss");
 
-    await prisma.tbl_BMORun2024_Barrage.create({
+    const prismaMysql = await prisma_Mysql();
+    await prismaMysql.tbl_BMORun2024_Barrage.create({
       data: {
         donor_Fname: donor_Fname,
         donor_Lname: donor_Lname,

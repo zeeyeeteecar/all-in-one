@@ -21,7 +21,7 @@ export default function UserImageListBlock({
   }
 
   return (
-    <div className="w-full h-full border-0 p-10 overflow-y-auto space-y-2 ">
+    <div className="w-full h-full border-0 bg-white text-slate-700 p-10 overflow-y-auto space-y-2 ">
       {nameLists &&
         nameLists.map((user: any, key: number) => {
           return (

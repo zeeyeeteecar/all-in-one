@@ -1,5 +1,5 @@
 import React from "react";
-import { prisma } from "@/lib/db";
+import { prisma_Mysql } from "@/lib/lib";
 import { revalidatePath } from "next/cache";
 import BarrageDel from "./BarrageDel";
 import moment from "moment";
@@ -7,7 +7,8 @@ import moment from "moment";
 //=============================================
 async function listBarrage() {
   "use server";
-  return await prisma.tbl_BMORun2024_Barrage.findMany({
+const prismaMysql = await prisma_Mysql()
+  return await prismaMysql.tbl_BMORun2024_Barrage.findMany({
     orderBy: {
       ID: "desc",
     },
@@ -26,8 +27,8 @@ async function delBarrage(data: FormData) {
   const barrageID = data.get("barrageID")?.valueOf().toString();
 
   //console.log(barrageID);
-
-  await prisma.tbl_BMORun2024_Barrage.delete({
+  const prismaMysql = await prisma_Mysql()
+  await prismaMysql.tbl_BMORun2024_Barrage.delete({
     where: {
       ID: Number(barrageID),
     },

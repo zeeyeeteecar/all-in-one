@@ -1,16 +1,14 @@
 import React from "react";
-//import { prisma } from "../../lib/db";
 
 import { revalidatePath } from "next/cache";
-//import { getLists } from "../../lib/lib";
-import { PrismaClient as PrismaClient_MYSQL } from "../../../../prisma/generate/MYSQL";
+import { prisma_Mysql } from "@/lib/lib";
 
 import UserImageListBlock from "./components/UserImageListBlock";
-//import SideNavBar from "../components/common/SideNavBar";
+import SideNavBar from "../../common/components/SideNavBar";
 
 async function deleteUserImage(userID: string) {
   "use server";
-  const prismaMysql = new PrismaClient_MYSQL();
+  const prismaMysql = await prisma_Mysql();
   await prismaMysql.tbl_CaptureImage.delete({
     where: {
       ID: Number(userID),
@@ -21,12 +19,12 @@ async function deleteUserImage(userID: string) {
 }
 
 export default async function userImgList() {
-  const prismaMysql = new PrismaClient_MYSQL();
+  const prismaMysql = await prisma_Mysql();
   const nameLists = await prismaMysql.tbl_CaptureImage.findMany({});
 
   return (
-    <div className="w-full h-screen border-4 border-red-400 flex flex-row">
-      {/* <SideNavBar /> */}
+    <div className="w-screen h-screen border-0 border-red-400 flex flex-row">
+      <SideNavBar />
 
       <UserImageListBlock
         nameLists={nameLists}

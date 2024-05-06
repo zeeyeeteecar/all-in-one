@@ -426,3 +426,11 @@ model users {
   Password String @db.VarChar(50)
   id       Int    @id @default(autoincrement())
 }
+
+model tbl_CaptureImage {
+  ID          Int     @id @default(autoincrement())
+  userName    String? @db.VarChar(20)
+  userID      Int?
+  imgBase64_1 String? @db.MediumText
+  imgBase64_2 String  @db.MediumText
+}

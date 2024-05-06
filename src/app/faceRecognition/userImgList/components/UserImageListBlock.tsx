@@ -55,7 +55,7 @@ export default function UserImageListBlock({
                 />
               </div>
 
-              <div className="w-[200px] border-0  flex flex-col place-content-center px-10">
+              <div className="w-[150px] border-0  flex flex-col place-content-center px-10">
                 <button
                   type="button"
                   name={user.ID.toString()}
@@ -66,7 +66,10 @@ export default function UserImageListBlock({
                   {" "}
                   delete{" "}
                 </button>
-                <button
+
+              </div>
+              <div className="w-[150px] border-0  flex flex-col place-content-center px-10">
+              <button
                   type="button"
                   name={user.ID.toString()}
                   value={user.ID.toString()}

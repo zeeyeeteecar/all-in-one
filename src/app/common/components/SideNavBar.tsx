@@ -29,14 +29,6 @@ const navItems = [
       //   itemIconPathD:
       //     "M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z",
       // },
-
-      {
-        itemTitle: "Logout",
-        itemLink: "/logout",
-        itemBgColor: "bg-blue-500",
-        itemIconPathD:
-          "M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1",
-      },
     ],
   },
   {

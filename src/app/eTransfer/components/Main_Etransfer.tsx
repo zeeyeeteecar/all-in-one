@@ -59,11 +59,11 @@ export default async function Header() {
         <div
           id="titleBar"
           className="w-full h-[50px] bg-slate-700 rounded-t-lg"
-        >dfadfadf</div>
+        >{donorList.length}</div>
 
         <div
           id="dataListBlock"
-          className="flex flex-col font-light flex-1 w-full overflow-y-auto"
+          className="flex flex-col font-light flex-1 w-full h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-300"
         >
           {/* {JSON.stringify(donorList)} */}
           {donorList &&

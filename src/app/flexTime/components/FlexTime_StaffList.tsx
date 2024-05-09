@@ -8,8 +8,8 @@ export default function StaffLeave_StaffList({
   staffID,
   setStaffID,
   _staffList,
-  // fetchData_Individual_Flextime,
-}: // handle_StaffLeave_Save,
+}: // fetchData_Individual_Flextime,
+// handle_StaffLeave_Save,
 // fetchData_StaffLeave_CalendarMonth,
 
 any) {
@@ -24,13 +24,13 @@ any) {
     //   userID
     // );
 
-    console.log(userID)
+    console.log(userID);
   }
 
   return (
     <div
       id="staff-list-block"
-      className="w-full h-full overflow-y-auto border-0 border-blue-300 "
+      className="w-full h-[500px] overflow-y-auto border-0 border-blue-300 scrollbar-thin scrollba scrollbar-thumb-violet-200 scrollbar-track-slate-100"
     >
       {/* {JSON.stringify(staffLeave_List)} */}
       {_staffList &&

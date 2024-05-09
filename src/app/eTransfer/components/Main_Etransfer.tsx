@@ -59,7 +59,7 @@ export default async function Header() {
         <div
           id="titleBar"
           className="w-full h-[50px] bg-slate-700 rounded-t-lg"
-        ></div>
+        >dfadfadf</div>
 
         <div
           id="dataListBlock"

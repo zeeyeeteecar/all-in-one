@@ -21,14 +21,15 @@ const navItems = [
         itemIconPathD:
           "M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4",
       },
-      // {
-      //   itemTitle: "Sign-in List",
-      //   itemLink: "/signInList",
-      //   itemBgColor: "bg-purple-500",
-      //   //itemIconPathD: "M13 10V3L4 14h7v7l9-11h-7z",
-      //   itemIconPathD:
-      //     "M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z",
-      // },
+
+      {
+        itemTitle: "Flex Time",
+        itemLink: "/flexTime",
+        itemBgColor: "bg-purple-500",
+        //itemIconPathD: "M13 10V3L4 14h7v7l9-11h-7z",
+        itemIconPathD:
+          "M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z",
+      },
     ],
   },
   {

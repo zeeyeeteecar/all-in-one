@@ -16,8 +16,8 @@ export default function StaffMain({
   const [selectLeaveDate, setSelectLeaveDate] = React.useState("");
 
   return (
-    <div className="w-full h-full flex flex-row border-blue-300 bg-white border-0 space-x-3 ">
-      <div className="w-[400px] h-full">
+    <div className="w-full h-full flex flex-row border-blue-300 bg-white border-0 space-x-3 p-5 ">
+      <div className="w-[350px] h-full">
         <FlexTime_StaffList
           staffID={staffID}
           setStaffID={setStaffID}

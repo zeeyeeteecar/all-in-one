@@ -8,26 +8,23 @@ export default function StaffLeave_StaffList({
   staffID,
   setStaffID,
   _staffList,
-  _setStaffList,
-  _staffLeaveList,
-  fetchData_IndividualStaffLeave,
-  // handle_StaffLeave_Save,
-  // fetchData_StaffLeave_CalendarMonth,
-  individualStaffLeaveList,
-  setIndividualStaffLeaveList,
-}: any) {
+  // fetchData_Individual_Flextime,
+}: // handle_StaffLeave_Save,
+// fetchData_StaffLeave_CalendarMonth,
+
+any) {
   const [disableAddLeave, setDisableAddLeave] = React.useState(true);
 
   async function handleClick_Select_Staff(e: any) {
-    setIndividualStaffLeaveList([]);
+    //setIndividualStaffLeaveList([]);
     setStaffID("");
     setDisableAddLeave(true);
     const userID: string = e.target.value.toString();
-    const fetch_individualStaffLeave = await fetchData_IndividualStaffLeave(
-      userID
-    );
+    // const fetch_individualStaffLeave = await fetchData_IndividualStaffLeave(
+    //   userID
+    // );
 
-    setIndividualStaffLeaveList(fetch_individualStaffLeave);
+    console.log(userID)
   }
 
   return (
@@ -56,14 +53,14 @@ export default function StaffLeave_StaffList({
                   />
 
                   <div
-                    className="flex flex-row h-full  hover:bg-red-50 px-4  space-x-2 py-2 border bg-slate-100 
-                  rounded-lg cursor-pointer text-sm border-gray-200 group peer-checked:border-red-500 peer-checked:bg-red-100"
+                    className="flex flex-row h-full  hover:bg-red-50 px-4  space-x-2 py-2 border bg-slate-50 
+                  rounded-lg cursor-pointer text-sm border-gray-100 group peer-checked:border-red-500 peer-checked:bg-red-100"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      strokeWidth="1.5"
+                      strokeWidth="1"
                       stroke="currentColor"
                       className="w-9 h-9 float-left text-red-600 invisible group-[.peer:checked+&]:visible"
                     >
@@ -74,8 +71,14 @@ export default function StaffLeave_StaffList({
                       />
                     </svg>
 
-                    <div className=" h-full float-left m-auto font-medium text-gray-700 border-0 border-red-300">
-                      {staff.userID} - {staff.Fname} - {staff.Lname} -{}
+                    <div className=" h-full flex flex-col space-y-1 font-medium text-gray-700 border-0 border-red-300">
+                      <div>
+                        {staff.Fname} - {staff.Lname}
+                      </div>
+                      <div className=" font-light text-slate-400">
+                        {" "}
+                        {staff.userID}{" "}
+                      </div>
                     </div>
 
                     <div className="border-0 border-red-300 grow flow-root justify-center  ">

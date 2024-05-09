@@ -3,6 +3,7 @@ import Image from "next/image";
 //import SessionInfo  from "@/lib/SessionInfo";
 import axios from "axios";
 import { prisma } from "@/lib/prisma";
+import { prisma_Mysql } from "@/lib/lib";
 import moment from "moment";
 import { PiCellSignalFullLight } from "react-icons/pi";
 import { AiOutlineHome } from "react-icons/ai";
@@ -42,9 +43,14 @@ export default async function Header() {
     return url + randomNumber.toString();
   };
 
-  const donorList = await prisma.tbl_ETransferInfo.findMany({
+  // const donorList = await prisma.tbl_ETransferInfo.findMany({
+  //   orderBy: { id: "desc" },
+  // });
+  const prismaDonorList = await prisma_Mysql();
+  const donorList = await prismaDonorList.tbl_ETransferInfo.findMany({
     orderBy: { id: "desc" },
   });
+
   return (
     <div className="w-full h-full border-0 bg-slate-200  grid  place-items-center">
       {/* <div className="h-[40px] w-[500px] border"><TokenInfo /></div> */}

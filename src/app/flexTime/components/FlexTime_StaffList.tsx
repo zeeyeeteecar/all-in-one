@@ -5,8 +5,8 @@ import moment from "moment-timezone";
 import { IoAddCircleOutline } from "react-icons/io5";
 
 export default function StaffLeave_StaffList({
-  staffID,
-  setStaffID,
+  staffLoginName,
+  setStaffLoginName,
   _staffList,
 }: // fetchData_Individual_Flextime,
 // handle_StaffLeave_Save,
@@ -17,20 +17,22 @@ any) {
 
   async function handleClick_Select_Staff(e: any) {
     //setIndividualStaffLeaveList([]);
-    setStaffID("");
+
+    setStaffLoginName(e.target.value.toString());
     setDisableAddLeave(true);
-    const userID: string = e.target.value.toString();
+
     // const fetch_individualStaffLeave = await fetchData_IndividualStaffLeave(
     //   userID
     // );
-
-    console.log(userID);
   }
+
+  //console.log("staffLoginName", staffLoginName);
+  
 
   return (
     <div
       id="staff-list-block"
-      className="w-full h-[500px] overflow-y-auto border-0 border-blue-300 scrollbar-thin scrollba scrollbar-thumb-violet-200 scrollbar-track-slate-100"
+      className="w-full h-full overflow-y-auto border-0 border-blue-300 scrollbar scroll-thumb scrollbar-thumb-violet-100 scrollbar-track-slate-50"
     >
       {/* {JSON.stringify(staffLeave_List)} */}
       {_staffList &&
@@ -46,7 +48,7 @@ any) {
                 <label>
                   <input
                     type="radio"
-                    value={staff.userID}
+                    value={staff.loginName.toString()}
                     className="peer hidden"
                     name="framework"
                     onClick={(e) => handleClick_Select_Staff(e)}
@@ -84,10 +86,10 @@ any) {
                     <div className="border-0 border-red-300 grow flow-root justify-center  ">
                       <button
                         type="button"
-                        value={staff.userID.toString()}
+                        value={staff.loginName.toString()}
                         className="w-[30px] h-[30px] float-end  text-red-600 invisible group-[.peer:checked+&]:visible "
                         onClick={(e) =>
-                          alert("add new" + e.currentTarget.value)
+                          alert("add new--  " + e.currentTarget.value)
                         }
                       >
                         <IoAddCircleOutline className="w-8 h-8" />

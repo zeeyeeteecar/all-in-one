@@ -2,7 +2,7 @@ import React from "react";
 import SideNavBar from "@/app/common/components/SideNavBar";
 import FlextTime_Main from "./components/FlextTime_Main";
 
-import { fetchData_StaffList } from "@/lib/lib";
+import { fetchData_StaffList, fetchData_SelectedStaffFlexTime } from "@/lib/lib";
 
 
 export default async function page() {
@@ -23,7 +23,7 @@ export default async function page() {
       <FlextTime_Main
         _staffList={staffList}
         handle_StaffLeave_Save={handle_StaffLeave_Save}
-        //fetchData_Individual_Flextime
+        fetchData_SelectedStaffFlexTime={fetchData_SelectedStaffFlexTime}
       />
     </div>
   );

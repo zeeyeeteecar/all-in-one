@@ -13,7 +13,6 @@ export async function prisma_Mysql() {
   return response;
 }
 
-
 //================================================
 
 export async function fetchData_StaffList() {
@@ -34,3 +33,21 @@ export async function fetchData_StaffList() {
 }
 
 //==================================================
+
+export async function fetchData_SelectedStaffFlexTime(staffLoginName: string) {
+  "use server";
+  const res = await fetch(
+    "https://www.accessrichmond.org/o2b2/apiStaffInfo/flexTime/searchStaffFlexTime.aspx?staffLoginName=" +
+      staffLoginName,
+    { cache: "no-store" }
+  );
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}

@@ -11,7 +11,8 @@ export default function FlexTime_StaffFlexTimeList({
 
   const fetchData = async () => {
     await fetch(
-      "https://www.accessrichmond.org/o2b2/apiStaffInfo/flexTime/searchStaffFlexTime.aspx?staffLoginName=tom",
+      // "https://www.accessrichmond.org/o2b2/apiStaffInfo/flexTime/searchStaffFlexTime.aspx?staffLoginName=tom",
+      "https://jsonplaceholder.typicode.com/todos/1",
       { mode: "no-cors" }
     )
       .then((res) => res.json())

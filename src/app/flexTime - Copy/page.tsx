@@ -9,7 +9,7 @@ import {
 
 export default async function page() {
   const staffList = await fetchData_StaffList();
-  const selectedStaffFlexTime = await fetchData_SelectedStaffFlexTime("tom");
+  const selectedStaffFlexTime = await fetchData_SelectedStaffFlexTime();
 
   console.log(staffList);
   console.log(selectedStaffFlexTime);

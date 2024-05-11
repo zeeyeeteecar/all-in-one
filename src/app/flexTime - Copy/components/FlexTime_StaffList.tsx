@@ -7,13 +7,10 @@ import { IoAddCircleOutline } from "react-icons/io5";
 export default function StaffLeave_StaffList({
   staffLoginName,
   setStaffLoginName,
-
-  staffFlexTime,
-  setStaffFlexTime,
-
   _staffList,
 
-  globe_selectedStaffFlexTimeList,
+  selectedStaffFlexTimeList,
+  setSelectedStaffFlexTimeList,
   fetchData_SelectedStaffFlexTime,
 }: any) {
   async function handleClick_Select_Staff(e: any) {
@@ -21,20 +18,10 @@ export default function StaffLeave_StaffList({
 
     setStaffLoginName(selectedStaffLoginName);
     // setSelectedStaffFlexTimeList(null);
-    console.log(await fetchData_SelectedStaffFlexTime(selectedStaffLoginName));
-    setStaffFlexTime(
-      await fetchData_SelectedStaffFlexTime(selectedStaffLoginName)
-    );
+    const resp = await fetchData_SelectedStaffFlexTime(staffLoginName);
+    await setSelectedStaffFlexTimeList(resp);
+    console.log("selectedStaffFlexTimeList", selectedStaffFlexTimeList);
   }
-
-  console.log(
-    "globe_selectedStaffFlexTimeList",
-    globe_selectedStaffFlexTimeList
-  );
-
-  console.log("staffLoginName", staffLoginName);
-
-  console.log("staffFlexTime", staffFlexTime);
 
   return (
     <div

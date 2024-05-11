@@ -5,11 +5,7 @@ import axios from "axios";
 export default function FlexTime_StaffFlexTimeList({
   staffLoginName,
   setStaffLoginName,
-
-  staffFlexTime,
-  setStaffFlexTime,
-
-  globe_selectedStaffFlexTimeList
+  selectedStaffFlexTimeList,
 }: any) {
  
 
@@ -20,7 +16,7 @@ export default function FlexTime_StaffFlexTimeList({
   return (
     <>
       <div>{staffLoginName}</div>
-      <div>{JSON.stringify(staffFlexTime)}</div>
+      <div>{JSON.stringify(selectedStaffFlexTimeList)}</div>
       <div>FlexTime_StaffFlexTimeList</div>
     </>
   );

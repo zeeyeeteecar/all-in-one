@@ -8,9 +8,9 @@ import {
 } from "@/lib/lib";
 
 export default async function page() {
-  const staffList = await fetchData_StaffList();
+  const staffList: any = await fetchData_StaffList();
 
-  console.log("staffList", staffList);
+  //console.log("staffList", staffList);
 
   async function handle_StaffLeave_Save(leaveInfo: any) {
     "use server";
@@ -22,7 +22,7 @@ export default async function page() {
       {/* <div>{JSON.stringify(selectedStaffFlexTime)}</div> */}
       <SideNavBar />
       <FlextTime_Main
-        _staffList={staffList}
+        staffList={staffList}
         handle_StaffLeave_Save={handle_StaffLeave_Save}
         fetchData_SelectedStaffFlexTime={fetchData_SelectedStaffFlexTime}
       />

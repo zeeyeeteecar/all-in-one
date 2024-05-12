@@ -11,7 +11,7 @@ export default function StaffLeave_StaffList({
   staffFlexTime,
   setStaffFlexTime,
 
-  _staffList,
+  staffList,
 
   globe_selectedStaffFlexTimeList,
   fetchData_SelectedStaffFlexTime,
@@ -42,8 +42,8 @@ export default function StaffLeave_StaffList({
       className="w-full h-full overflow-y-auto border-0 border-blue-300 scrollbar scroll-thumb scrollbar-thumb-violet-100 scrollbar-track-slate-50"
     >
       {/* {JSON.stringify(staffLeave_List)} */}
-      {_staffList &&
-        _staffList
+      {staffList &&
+        staffList
           .filter((el: any) => el.UserActivate === "on")
           .map((staff: any, key: number) => {
             // const filter_StaffLeave = staffLeave_List.filter(

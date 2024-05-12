@@ -7,11 +7,11 @@ import FlexTime_StaffFlexTimeList from "./FlexTime_StaffFlexTimeList";
 let globe_selectedStaffFlexTimeList: any[] = [];
 
 export default function StaffMain({
-  _staffList,
+  staffList,
   fetchData_SelectedStaffFlexTime,
 }: any) {
-  const [staffLoginName, setStaffLoginName] = React.useState("");
-  const [staffFlexTime, setStaffFlexTime] = React.useState([]);
+  const [staffLoginName, setStaffLoginName] = React.useState<string>("");
+  const [staffFlexTime, setStaffFlexTime] = React.useState<any>([]);
 
   return (
     <div className="w-full h-full flex flex-row border-blue-300 bg-white border-0 space-x-3 p-5 ">
@@ -21,8 +21,8 @@ export default function StaffMain({
           setStaffLoginName={setStaffLoginName}
           staffFlexTime={staffFlexTime}
           setStaffFlexTime={setStaffFlexTime}
-          _staffList={_staffList}
-          globe_selectedStaffFlexTimeList={globe_selectedStaffFlexTimeList}
+          staffList={staffList}
+          // globe_selectedStaffFlexTimeList={globe_selectedStaffFlexTimeList}
           fetchData_SelectedStaffFlexTime={fetchData_SelectedStaffFlexTime}
         />
       </div>
@@ -36,10 +36,9 @@ export default function StaffMain({
           setStaffLoginName={setStaffLoginName}
           staffFlexTime={staffFlexTime}
           setStaffFlexTime={setStaffFlexTime}
-          globe_selectedStaffFlexTimeList={globe_selectedStaffFlexTimeList}
+          // globe_selectedStaffFlexTimeList={globe_selectedStaffFlexTimeList}
         />
       </div>
-      
 
       {/* <div className="w-1/3">
         <div className="w-[500px] h-full border-4 border-purple-300">

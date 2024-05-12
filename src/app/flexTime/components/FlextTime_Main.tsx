@@ -11,7 +11,7 @@ export default function StaffMain({
   fetchData_SelectedStaffFlexTime,
 }: any) {
   const [staffLoginName, setStaffLoginName] = React.useState("");
-  const [staffFlexTime, setStaffFlexTime] = React.useState();
+  const [staffFlexTime, setStaffFlexTime] = React.useState([]);
 
   return (
     <div className="w-full h-full flex flex-row border-blue-300 bg-white border-0 space-x-3 p-5 ">
@@ -29,19 +29,17 @@ export default function StaffMain({
 
       <div
         id="staff-leave-block"
-        className="w-[800px] border-0 border-yellow-100 text-slate-600"
+        className="w-[800px] h-full border-2 border-yellow-100 text-slate-600 "
       >
         <FlexTime_StaffFlexTimeList
           staffLoginName={staffLoginName}
           setStaffLoginName={setStaffLoginName}
-
           staffFlexTime={staffFlexTime}
           setStaffFlexTime={setStaffFlexTime}
-          
           globe_selectedStaffFlexTimeList={globe_selectedStaffFlexTimeList}
         />
       </div>
-      <div>{JSON.stringify(staffFlexTime)}</div>
+      
 
       {/* <div className="w-1/3">
         <div className="w-[500px] h-full border-4 border-purple-300">

@@ -9,10 +9,8 @@ import {
 
 export default async function page() {
   const staffList = await fetchData_StaffList();
-  const selectedStaffFlexTime = await fetchData_SelectedStaffFlexTime("tom");
 
-  console.log(staffList);
-  console.log(selectedStaffFlexTime);
+  console.log("staffList", staffList);
 
   async function handle_StaffLeave_Save(leaveInfo: any) {
     "use server";

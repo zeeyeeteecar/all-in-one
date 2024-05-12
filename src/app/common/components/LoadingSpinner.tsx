@@ -18,7 +18,7 @@ export default function LoadingSpinner() {
             y2="64"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="24"
+            strokeWidth="24"
           ></line>
           <line
             x1="195.9"
@@ -27,7 +27,7 @@ export default function LoadingSpinner() {
             y2="82.7"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="24"
+            strokeWidth="24"
           ></line>
           <line
             x1="224"
@@ -36,7 +36,7 @@ export default function LoadingSpinner() {
             y2="128"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="24"
+            strokeWidth="24"
           ></line>
           <line
             x1="195.9"
@@ -45,7 +45,7 @@ export default function LoadingSpinner() {
             y2="173.3"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="24"
+            strokeWidth="24"
           ></line>
           <line
             x1="128"
@@ -54,7 +54,7 @@ export default function LoadingSpinner() {
             y2="192"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="24"
+            strokeWidth="24"
           ></line>
           <line
             x1="60.1"
@@ -63,7 +63,7 @@ export default function LoadingSpinner() {
             y2="173.3"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="24"
+            strokeWidth="24"
           ></line>
           <line
             x1="32"
@@ -72,7 +72,7 @@ export default function LoadingSpinner() {
             y2="128"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="24"
+            strokeWidth="24"
           ></line>
           <line
             x1="60.1"
@@ -81,7 +81,7 @@ export default function LoadingSpinner() {
             y2="82.7"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="24"
+            strokeWidth="24"
           ></line>
         </svg>
         <span className="text-4xl font-medium text-gray-500">Loading...</span>

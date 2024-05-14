@@ -117,7 +117,7 @@ export default function SideNavBar() {
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            stroke-width="2"
+                            strokeWidth="2"
                             d={item.itemIconPathD}
                           ></path>
                         </svg>

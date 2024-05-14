@@ -7,23 +7,34 @@ import { IoAddCircleOutline } from "react-icons/io5";
 export default function StaffLeave_StaffList({
   staffLoginName,
   setStaffLoginName,
-  _staffList,
+
+  staffFlexTime,
+  setStaffFlexTime,
+
+  staffList,
+
+  globe_selectedStaffFlexTimeList,
   fetchData_SelectedStaffFlexTime,
 }: any) {
-  const [disableAddLeave, setDisableAddLeave] = React.useState(true);
-
   async function handleClick_Select_Staff(e: any) {
-    //setIndividualStaffLeaveList([]);
+    const selectedStaffLoginName = e.target.value.toString();
 
-    setStaffLoginName(e.target.value.toString());
-    setDisableAddLeave(true);
-
-    // const fetch_individualStaffLeave = await fetchData_IndividualStaffLeave(
-    //   userID
-    // );
+    setStaffLoginName(selectedStaffLoginName);
+    // setSelectedStaffFlexTimeList(null);
+    console.log(await fetchData_SelectedStaffFlexTime(selectedStaffLoginName));
+    setStaffFlexTime(
+      await fetchData_SelectedStaffFlexTime(selectedStaffLoginName)
+    );
   }
 
-  //console.log("staffLoginName", staffLoginName);
+  console.log(
+    "globe_selectedStaffFlexTimeList",
+    globe_selectedStaffFlexTimeList
+  );
+
+  console.log("staffLoginName", staffLoginName);
+
+  console.log("staffFlexTime", staffFlexTime);
 
   return (
     <div
@@ -31,8 +42,8 @@ export default function StaffLeave_StaffList({
       className="w-full h-full overflow-y-auto border-0 border-blue-300 scrollbar scroll-thumb scrollbar-thumb-violet-100 scrollbar-track-slate-50"
     >
       {/* {JSON.stringify(staffLeave_List)} */}
-      {_staffList &&
-        _staffList
+      {staffList &&
+        staffList
           .filter((el: any) => el.UserActivate === "on")
           .map((staff: any, key: number) => {
             // const filter_StaffLeave = staffLeave_List.filter(

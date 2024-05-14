@@ -8,11 +8,8 @@ export default function StaffLeave_StaffList({
   staffLoginName,
   setStaffLoginName,
   _staffList,
-}: // fetchData_Individual_Flextime,
-// handle_StaffLeave_Save,
-// fetchData_StaffLeave_CalendarMonth,
-
-any) {
+  fetchData_SelectedStaffFlexTime,
+}: any) {
   const [disableAddLeave, setDisableAddLeave] = React.useState(true);
 
   async function handleClick_Select_Staff(e: any) {
@@ -27,7 +24,6 @@ any) {
   }
 
   //console.log("staffLoginName", staffLoginName);
-  
 
   return (
     <div

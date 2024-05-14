@@ -19,6 +19,7 @@ export default function StaffMain({
           staffLoginName={staffLoginName}
           setStaffLoginName={setStaffLoginName}
           _staffList={_staffList}
+          fetchData_SelectedStaffFlexTime={fetchData_SelectedStaffFlexTime}
         />
       </div>
 

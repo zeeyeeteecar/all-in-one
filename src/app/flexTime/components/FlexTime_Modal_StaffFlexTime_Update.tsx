@@ -6,6 +6,7 @@ import { stringify } from "querystring";
 export default function StaffLeave_StaffLeave_Modal_SelectDate({
   handleOnClose,
   visible,
+  flextime
 }: any) {
   if (!visible) return null;
 
@@ -35,6 +36,7 @@ export default function StaffLeave_StaffLeave_Modal_SelectDate({
         <button onClick={handleOnClose} className="h-[30px] w-[50px]">
           X
         </button>
+        <div>{JSON.stringify(flextime)}</div>
         <div className="w-full h-[50px] border">
           {selectedYearMonth.selectedYear.toString()} -
           {moment(selectedYearMonth.selectedMonth.toString()).format("MMM")} ==

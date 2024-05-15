@@ -30,7 +30,7 @@ export default function StaffLeave_StaffLeave_Modal_SelectDate({
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-20 backdrop-blur-none flex items-center justify-center">
+    <div className="fixed inset-0 bg-white bg-opacity-5 flex items-center justify-center">
       <div className="w-[1000px] h-[800px] border bg-white">
         <button onClick={handleOnClose} className="h-[30px] w-[50px]">
           X

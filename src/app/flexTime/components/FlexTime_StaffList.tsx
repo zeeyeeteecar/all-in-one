@@ -13,7 +13,6 @@ export default function StaffLeave_StaffList({
 
   staffList,
 
-  globe_selectedStaffFlexTimeList,
   fetchData_SelectedStaffFlexTime,
 }: any) {
   async function handleClick_Select_Staff(e: any) {
@@ -27,10 +26,6 @@ export default function StaffLeave_StaffList({
     );
   }
 
-  console.log(
-    "globe_selectedStaffFlexTimeList",
-    globe_selectedStaffFlexTimeList
-  );
 
   console.log("staffLoginName", staffLoginName);
 

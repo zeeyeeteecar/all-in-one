@@ -1,6 +1,6 @@
 import moment from "moment-timezone";
 import React from "react";
-import FlexTime_Modal_StaffFlexTime_Update from "./FlexTime_Modal_StaffFlexTime_Update";
+import FlexTime_Modal_StaffFlexTime_Update from "./Modal/FlexTime_Modal_StaffFlexTime_Update";
 
 export default function FlexTime_StaffFlexTimeList_Row({ flextime }: any) {
   const [showModal_Show, setShowModal_Show] = React.useState(false);

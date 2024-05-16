@@ -1,10 +1,15 @@
-export async function fetchApi_past12MonthHeadCount(yyyyMMdd: string) {
+export async function fetchApi_past12MonthHeadCount(
+  yyyyMMdd: string,
+  memberStatus: string
+) {
   "use server";
 
   const body = { pastMonth: yyyyMMdd };
   const res = await fetch(
     "https://www.accessrichmond.org/o2b2/api/signIn/past12MonthHeadCount.aspx?yyyyMMdd=" +
-      yyyyMMdd,
+      yyyyMMdd +
+      "&memberStatus=" +
+      memberStatus,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },

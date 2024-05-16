@@ -21,21 +21,68 @@ const memberStatus = [
   { key: 5, title: "Staff", value: "Staff", accentColor: "accent-indigo-600" },
 ];
 
-export default function SignInReport_Main({ past12MonthHeadCount }: any) {
-  const [array_memberStatus, setArray_memberStatus] = React.useState([]);
+export default function SignInReport_Main({
+  fetchApi_past12MonthHeadCount,
+}: any) {
+  const [yyyyMMdd, setYYYYMMdd] = React.useState("2022-01-01");
+  const [array_memberStatus, setArray_memberStatus] = React.useState<string[]>([
+    "P",
+    "Vol",
+    "Visitor",
+    "PP",
+    "Staff",
+  ]);
+  const [monthHeadCount, setMonthHeadCount] = React.useState([]);
+
+  const string_MemberStatus =
+    "'" + array_memberStatus.map((e) => e).join("','") + "'";
+
+  const fetchInfo = async () => {
+    const past12MonthHeadCount = await fetchApi_past12MonthHeadCount(
+      yyyyMMdd,
+      string_MemberStatus
+    );
+    setMonthHeadCount(past12MonthHeadCount);
+  };
+
+  React.useEffect(() => {
+    fetchInfo();
+  }, []);
+
+  console.log(monthHeadCount)
 
   function handle_onChange(e: any) {
     const ifchecked = e.currentTarget.checked;
     const statusValue = e.currentTarget.value;
-    alert(ifchecked + statusValue);
+    setArray_memberStatus((prevState) => {
+      // check if it is already added
+      if (prevState.includes(statusValue)) {
+        // clone the prevState arr to prevent side effects
+        const clone = [...prevState];
+        // Remove the existing id
+        clone.splice(prevState.indexOf(statusValue), 1);
+        return clone;
+      } else {
+        return [...prevState, statusValue];
+      }
+    });
+  }
+
+  async function handle_onClick() {
+    console.log(string_MemberStatus);
+    const past12MonthHeadCount = await fetchApi_past12MonthHeadCount(
+      yyyyMMdd,
+      string_MemberStatus
+    );
+    setMonthHeadCount(past12MonthHeadCount);
   }
   return (
     <div className="flex flex-row  min-h-screen w-full from-slate-100 via-teal-50 to-slate-100 bg-gradient-to-br p-5 gap-x-5">
-      <div className="w-[300px] border flex flex-col p-4 gap-y-4">
+      <div className="w-[300px] flex flex-col p-4 gap-y-4  border-2">
         <div>
-          <a
-            href=""
+          <button
             className="flex w-full text-indigo-700 border border-indigo-600 py-2 px-6 gap-2 rounded  items-center hover:bg-slate-200"
+            onClick={() => handle_onClick()}
           >
             <span>Search</span>
             <svg
@@ -49,7 +96,7 @@ export default function SignInReport_Main({ past12MonthHeadCount }: any) {
             >
               <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
-          </a>
+          </button>
         </div>
 
         {memberStatus.map((status: any, key: number) => {
@@ -73,13 +120,16 @@ export default function SignInReport_Main({ past12MonthHeadCount }: any) {
             </div>
           );
         })}
+        <div className="text-slate-300">
+          {JSON.stringify(array_memberStatus)}
+        </div>
       </div>
 
       <div className="flex flex-col">
         <p className="text-gray-600">Checkbox Buttons. Click to select</p>
         <div className="h-full max-w-md mx-auto overflow-y-auto p-3">
-          {past12MonthHeadCount &&
-            past12MonthHeadCount.map((eachMonth: any, key: number) => {
+          {monthHeadCount &&
+            monthHeadCount.map((eachMonth: any, key: number) => {
               return (
                 <div key={key} className="relative flex items-start py-2 ml-4">
                   <input

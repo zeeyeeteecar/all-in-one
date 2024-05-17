@@ -90,8 +90,8 @@ export default function SignInReport_Main({
 
 
   return (
-    <div className="flex flex-row  min-h-screen w-full from-slate-100 via-teal-50 to-slate-100 bg-gradient-to-br p-5 gap-x-5">
-      <div className="w-[300px] flex flex-col p-4 gap-y-4  border-2">
+    <div className="flex flex-row  min-h-screen w-full bg-white p-5 gap-x-5">
+      <div className="w-[300px] flex flex-col p-4 gap-y-4  border bg-blue-50">
         <div>
           <button
             className="flex w-full text-indigo-700 border border-indigo-600 py-2 px-6 gap-2 rounded  items-center hover:bg-slate-200"

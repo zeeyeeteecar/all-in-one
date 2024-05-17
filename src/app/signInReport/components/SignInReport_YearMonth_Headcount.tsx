@@ -13,7 +13,7 @@ export default function SignInReport_YearMonth_Headcount({
   async function handle_onClick() {}
 
   return (
-    <div className="flex flex-col h-full w-full overflow-y-auto p-4">
+    <div className="flex flex-col h-full w-full overflow-y-auto p-4 bg-blue-50">
       <div>
         <button
           className="flex w-full text-indigo-700 border border-indigo-600 py-2 px-6 gap-2 rounded  items-center hover:bg-slate-200"

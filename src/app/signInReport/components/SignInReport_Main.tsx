@@ -23,7 +23,7 @@ const memberStatus = [
 ];
 
 export default function SignInReport_Main({
-  fetchApi_past12MonthHeadCount,
+  fetchApi_YearMonth_Headcount,
 }: any) {
   const currentYear:string = new Date().getFullYear().toString()
   const [yyyyMMdd, setYYYYMMdd] = React.useState(currentYear+"-01-01");
@@ -38,11 +38,11 @@ export default function SignInReport_Main({
   const [monthHeadCount, setMonthHeadCount] = React.useState([]);
 
   const fetchInfo = async () => {
-    const past12MonthHeadCount = await fetchApi_past12MonthHeadCount(
+    const YearMonth_Headcount = await fetchApi_YearMonth_Headcount(
       yyyyMMdd,
       string_MemberStatus
     );
-    setMonthHeadCount(past12MonthHeadCount);
+    setMonthHeadCount(YearMonth_Headcount);
   };
 
   React.useEffect(() => {
@@ -80,11 +80,11 @@ export default function SignInReport_Main({
 
   async function handle_onClick() {
     //console.log(string_MemberStatus);
-    const past12MonthHeadCount = await fetchApi_past12MonthHeadCount(
+    const YearMonth_Headcount = await fetchApi_YearMonth_Headcount(
       yyyyMMdd,
       string_MemberStatus
     );
-    setMonthHeadCount(past12MonthHeadCount);
+    setMonthHeadCount(YearMonth_Headcount);
   }
 
   console.log(yyyyMMdd);
@@ -149,10 +149,10 @@ export default function SignInReport_Main({
         </div>
       </div>
 
-      <div className="h-full w-[300px] border-2">
+      <div className="h-full w-[350px] border-2">
         <SignInReport_YearMonth_Headcount
           array_memberStatus={array_memberStatus}
-          fetchApi_past12MonthHeadCount={fetchApi_past12MonthHeadCount}
+          fetchApi_YearMonth_Headcount={fetchApi_YearMonth_Headcount}
           yyyyMMdd={yyyyMMdd}
           monthHeadCount={monthHeadCount}
           setMonthHeadCount={setMonthHeadCount}

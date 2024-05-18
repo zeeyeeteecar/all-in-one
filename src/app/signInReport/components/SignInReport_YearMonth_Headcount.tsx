@@ -2,6 +2,8 @@ import React from "react";
 
 import { IoMdPeople } from "react-icons/io";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { IoScanCircleSharp } from "react-icons/io5";
+import { LuScanFace } from "react-icons/lu";
 
 export default function SignInReport_YearMonth_Headcount({
   array_memberStatus,
@@ -42,31 +44,33 @@ export default function SignInReport_YearMonth_Headcount({
           </svg>
         </button>
       </div>
-      <div className="h-full w-full mx-auto overflow-y-auto ">
+      <div className="h-full w-full mx-auto overflow-y-auto p-3 ">
         {monthHeadCount &&
-          monthHeadCount.map((eachMonth: any, key: number) => {
+          monthHeadCount.map((eachDate: any, key: number) => {
             return (
               <div
                 key={key}
                 className="relative flex items-start py-2 min-w-full "
               >
                 <input
-                  id={eachMonth.YearMonth}
+                  id={eachDate.DateList}
                   type="checkbox"
                   className="hidden peer"
                   name="preferred_activities[]"
-                  value={eachMonth.YearMonth}
+                  value={eachDate.DateList}
                   onChange={(e) => handle_SelectYearMonth(e)}
                 />
                 <label
-                  htmlFor={eachMonth.YearMonth}
+                  htmlFor={eachDate.DateList}
                   className="inline-flex border h-[50px] items-center justify-between w-full p-2 font-medium tracking-tight rounded-lg cursor-pointer bg-white text-violet-500 border-violet-200 peer-checked:border-violet-400 peer-checked:bg-violet-700 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark hover:bg-violet-50"
                 >
                   <div className="flex items-center justify-center w-full">
                     <div className=" text-lg font-light text-brand-black flex flex-col">
                       <span className="flex flex-row items-center gap-x-4 ">
-                        {eachMonth.YearMonth}
-                        <IoMdPeople /> {eachMonth.HeadCount}
+                        {eachDate.DateList}
+                        <IoMdPeople /> {
+                          eachDate.Head
+                        } <IoScanCircleSharp /> {eachDate.Scan}
                       </span>
                     </div>
                   </div>

@@ -25,7 +25,8 @@ const memberStatus = [
 export default function SignInReport_Main({
   fetchApi_past12MonthHeadCount,
 }: any) {
-  const [yyyyMMdd, setYYYYMMdd] = React.useState("2022-01-01");
+  const currentYear:string = new Date().getFullYear().toString()
+  const [yyyyMMdd, setYYYYMMdd] = React.useState(currentYear+"-01-01");
   const [array_memberStatus, setArray_memberStatus] = React.useState<any>([
     "P",
     "Vol",
@@ -94,7 +95,7 @@ export default function SignInReport_Main({
       <div className="w-[300px] flex flex-col p-4 gap-y-4  border bg-blue-50">
         <div>
           <button
-            className="flex w-full text-indigo-700 border border-indigo-600 py-2 px-6 gap-2 rounded  items-center hover:bg-slate-200"
+            className="flex w-full h-[50px] text-indigo-700 border border-indigo-600 py-2 px-6 gap-2 rounded  items-center hover:bg-slate-200"
             onClick={() => handle_onClick()}
           >
             <span>Search</span>

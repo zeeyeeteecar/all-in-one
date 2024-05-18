@@ -10,16 +10,25 @@ export default function SignInReport_YearMonth_Headcount({
   monthHeadCount,
   setMonthHeadCount,
 }: any) {
-  async function handle_onClick() {}
+  const [searchMonthList, setSearchMonthList] = React.useState([]);
+
+  async function handle_SearchMonthDetails() {}
+
+  function handle_SelectYearMonth(e: any) {
+    const ifchecked = e.currentTarget.checked;
+    const selectedYearMonth = e.currentTarget.value;
+
+    alert(ifchecked + selectedYearMonth);
+  }
 
   return (
     <div className="flex flex-col h-full w-full overflow-y-auto p-4 bg-blue-50">
       <div>
         <button
-          className="flex w-full text-indigo-700 border border-indigo-600 py-2 px-6 gap-2 rounded  items-center hover:bg-slate-200"
-          onClick={() => handle_onClick()}
+          className="flex w-full h-[50px] text-indigo-700 border border-indigo-600 py-2 px-6 gap-2 rounded  items-center hover:bg-slate-200"
+          onClick={() => handle_SearchMonthDetails()}
         >
-          <span>Search</span>
+          <span>Search Month</span>
           <svg
             className="w-4"
             fill="none"
@@ -33,21 +42,25 @@ export default function SignInReport_YearMonth_Headcount({
           </svg>
         </button>
       </div>
-      <div className="h-full max-w-md mx-auto overflow-y-auto p-4">
+      <div className="h-full w-full mx-auto overflow-y-auto ">
         {monthHeadCount &&
           monthHeadCount.map((eachMonth: any, key: number) => {
             return (
-              <div key={key} className="relative flex items-start py-2 ml-4">
+              <div
+                key={key}
+                className="relative flex items-start py-2 min-w-full "
+              >
                 <input
                   id={eachMonth.YearMonth}
                   type="checkbox"
                   className="hidden peer"
                   name="preferred_activities[]"
                   value={eachMonth.YearMonth}
+                  onChange={(e) => handle_SelectYearMonth(e)}
                 />
                 <label
                   htmlFor={eachMonth.YearMonth}
-                  className="inline-flex items-center justify-between w-[200px] p-2 font-medium tracking-tight border rounded-lg cursor-pointer bg-white text-violet-500 border-violet-200 peer-checked:border-violet-400 peer-checked:bg-violet-700 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark hover:bg-violet-50"
+                  className="inline-flex border h-[50px] items-center justify-between w-full p-2 font-medium tracking-tight rounded-lg cursor-pointer bg-white text-violet-500 border-violet-200 peer-checked:border-violet-400 peer-checked:bg-violet-700 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark hover:bg-violet-50"
                 >
                   <div className="flex items-center justify-center w-full">
                     <div className=" text-lg font-light text-brand-black flex flex-col">

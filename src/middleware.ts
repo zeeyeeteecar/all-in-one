@@ -26,7 +26,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher:['/login','dashboard','/eTransfer','/bmo-run','/logout']
+  matcher:['/login','/dashboard','/eTransfer','/bmo-run','/logout']
 };
 
 

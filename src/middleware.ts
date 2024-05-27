@@ -10,6 +10,7 @@ export function middleware(request: NextRequest) {
     //path === "/login" ||
     path === "/eTransfer" ||
     path === "/bmo-run" ||
+    path === "/dashboard" ||
     path === "/logout";
 
   const token = request.cookies.get("token")?.value || undefined;
@@ -25,7 +26,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher:['/login','/eTransfer','/bmo-run','/logout']
+  matcher:['/login','dashboard','/eTransfer','/bmo-run','/logout']
 };
 
 

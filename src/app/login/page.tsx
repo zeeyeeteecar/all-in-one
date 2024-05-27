@@ -40,7 +40,7 @@ export default function SigninPage() {
       console.log("Login successfully", response.data);
 
       //toast.success("Login successfully");
-      router.push("/bmo-run");
+      router.push("/dashboard");
     } catch (error) {
       const err = error as AxiosError;
 

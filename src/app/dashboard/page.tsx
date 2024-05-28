@@ -1,7 +1,27 @@
-import React from 'react'
+import React from "react";
+import SideNavBar from "@/app/common/components/SideNavBar";
+import Dashboard_Main from "./components/Dashboard_Main"
 
-export default function dashboard() {
+// import {
+//   fetchData_StaffList,
+//   fetchData_SelectedStaffFlexTime,
+// } from "@/lib/lib";
+
+export default async function dashboard() {
+
+
+  //console.log("staffList", staffList);
+
+  async function handle_StaffLeave_Save(leaveInfo: any) {
+    "use server";
+    console.log(leaveInfo);
+  }
+
   return (
-    <div>dashboard</div>
-  )
+    <div className="w-screen h-screen border-0 border-red-400 flex flex-row">
+      {/* <div>{JSON.stringify(selectedStaffFlexTime)}</div> */}
+      <SideNavBar />
+      <Dashboard_Main/>
+    </div>
+  );
 }

@@ -18,7 +18,7 @@ export default async function dashboard() {
   }
 
   return (
-    <div className="w-screen h-screen border-0 border-red-400 flex flex-row">
+    <div className="w-screen h-screen border-0 border-red-400 flex flex-row bg-white">
       {/* <div>{JSON.stringify(selectedStaffFlexTime)}</div> */}
       <SideNavBar />
       <Dashboard_Main/>

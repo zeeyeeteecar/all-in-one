@@ -6,6 +6,14 @@ const navItems = [
     groupTitle: "Navigation Bar",
     items: [
       {
+        itemTitle: "Make It Fair",
+        itemLink: "/makeItFair",
+        itemBgColor: "bg-orange-500",
+        //itemIconPathD: "M4 6h16M4 12h16M4 18h16",
+        itemIconPathD:
+          "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
+      },
+      {
         itemTitle: "E-transfer",
         itemLink: "/eTransfer",
         itemBgColor: "bg-orange-500",
@@ -37,7 +45,7 @@ const navItems = [
         itemBgColor: "bg-purple-500",
         //itemIconPathD: "M13 10V3L4 14h7v7l9-11h-7z",
         itemIconPathD:
-          "M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z",
+          "M9.16667 2.5L16.6667 10C17.0911 10.4745 17.0911 11.1922 16.6667 11.6667L11.6667 16.6667C11.1922 17.0911 10.4745 17.0911 10 16.6667L2.5 9.16667V5.83333C2.5 3.99238 3.99238 2.5 5.83333 2.5H9.16667",
       },
 
       

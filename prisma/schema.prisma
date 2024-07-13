@@ -272,16 +272,22 @@ model users {
 
 model tbl_MakeItFair_2024_Answer {
   ID             Int      @id @default(autoincrement())
-  quesID         Int
+ 
   answerContent  String   @db.Text
   clientIP       String   @db.VarChar(20)
   answerDateTime DateTime @db.DateTime(0)
   answerTel      String   @db.VarChar(20)
   answerEmail    String   @db.VarChar(100)
+
+  question   tbl_MakeItFair_2024_Ques @relation(fields: [quesID], references: [ID])
+  quesID         Int
+  
 }
 
 model tbl_MakeItFair_2024_Ques {
   ID          Int    @id @default(autoincrement())
   quesTitle   String @db.VarChar(200)
   quesContent String @db.Text
+
+  answer tbl_MakeItFair_2024_Answer[]
 }

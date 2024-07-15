@@ -2,7 +2,7 @@
 import React from "react";
 import { IoAddCircleOutline } from "react-icons/io5";
 
-export default function Button({ question }: any) {
+export default function PlusButton({ question }: any) {
   function handle_Click(e: any) {
     alert("ddd" + e.currentTarget.value);
   }

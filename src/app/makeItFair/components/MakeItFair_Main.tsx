@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Button from "./Button";
+import PlusButton from "./PlusButton";
 import { IoAddCircleOutline } from "react-icons/io5";
 import moment from "moment-timezone";
 
@@ -8,7 +8,10 @@ export default function MakeItFair_Main({
   questionList,
   fetch_AnswerList,
 }: any) {
-  const [stateQestionList, setStateQuestionList] = React.useState<any>(
+  const [showModal_Show, setShowModal_Show] = React.useState(false);
+  const handleOnClose = () => setShowModal_Show(false);
+
+  const [stateQuestionList, setStateQuestionList] = React.useState<any>(
     questionList
   );
 
@@ -60,8 +63,8 @@ export default function MakeItFair_Main({
             </p>
           </button>
         </div>
-        {stateQestionList &&
-          stateQestionList.map((question: any, key: number) => {
+        {stateQuestionList &&
+          stateQuestionList.map((question: any, key: number) => {
             return (
               <div key={key} className="flex flex-col gap-0 p-2">
                 <label className="border-0">
@@ -97,8 +100,23 @@ export default function MakeItFair_Main({
                       {question.quesContent}
                     </div>
 
+                    <div className="border-0 border-blue-200 grow ">
+                      <button
+                        id="staffID"
+                        name="staffID"
+                        type="button"
+                        className="w-[50px]  h-[50px] border hover:bg-gray-400 text-gray-800 font-bold py-2 px-2 rounded  items-center"
+                        value={question.ID.toString()}
+                        // onClick={(e) => {
+                        //   handle_Select_LeaveDate(e.currentTarget.value);
+                        // }}
+                        onClick={() => setShowModal_Show(true)}
+                      >
+                        Edit
+                      </button>
+                    </div>
                     <div className="border-0 border-red-200 grow flow-root justify-center  ">
-                      <Button question={question} />
+                      <PlusButton question={question} />
                     </div>
                   </div>
                 </label>
@@ -108,7 +126,7 @@ export default function MakeItFair_Main({
       </div>
 
       <div id="divAnswerList" className="w-[1000px] h-full border bg-white">
-        {/* {JSON.stringify(stateAnswerList)} */}
+        {JSON.stringify(stateAnswerList)}
 
         <div className="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
           <div className="sm:flex items-center justify-between">
@@ -147,7 +165,10 @@ export default function MakeItFair_Main({
           {stateAnswerList &&
             stateAnswerList.map((answer: any, key: number) => {
               return (
-                <div key={key} className="mt-7 overflow-x-auto flex flex-col  text-sm">
+                <div
+                  key={key}
+                  className="mt-7 overflow-x-auto flex flex-col  text-sm"
+                >
                   <div> {answer.answerContent} </div>
                   <div>
                     {answer.ID} - {answer.quesID} - {answer.clientIP} -{" "}

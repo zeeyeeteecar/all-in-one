@@ -169,7 +169,6 @@ model TB_2017Gala_Karaoka {
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model TB_Auction_Item {
   ItemID         Int
   ItemCode       String   @db.VarChar(8)
@@ -187,7 +186,6 @@ model TB_Auction_Item {
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model TB_Auction_Item_Bid {
   ItemBidID                Int
   ItemBidName              String   @db.VarChar(20)
@@ -215,7 +213,6 @@ model events {
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model feature {
   Parking         String? @db.VarChar(5000)
   Sidewalk        String? @db.VarChar(5000)
@@ -275,21 +272,37 @@ model users {
 
 model tbl_MakeItFair_2024_Answer {
   ID             Int      @id @default(autoincrement())
-  
+  quesID         Int
   answerContent  String   @db.Text
   clientIP       String   @db.VarChar(20)
   answerDateTime DateTime @db.DateTime(0)
   answerTel      String   @db.VarChar(20)
   answerEmail    String   @db.VarChar(100)
+}
 
-   question   tbl_MakeItFair_2024_Ques @relation(fields: [quesID], references: [ID])
-   quesID         Int
+model tbl_MakeItFair_2024 {
+  ID             Int      @id @default(autoincrement())
+  answer         String   @db.VarChar(30)
+  answerIP       String   @db.VarChar(20)
+  answerDateTime DateTime @db.DateTime(0)
 }
 
 model tbl_MakeItFair_2024_Ques {
   ID          Int    @id @default(autoincrement())
   quesTitle   String @db.VarChar(200)
   quesContent String @db.Text
+}
 
-  answer tbl_MakeItFair_2024_Answer[]
+model tbl_MakeItFair_2024_QuestionAnswer {
+  ID                   Int     @id @default(autoincrement())
+  Question1Content     String  @db.VarChar(200)
+  Question1Excellent   Boolean @default(false)
+  Question1Good        Boolean @default(false)
+  Question1Fair        Boolean @default(false)
+  Question1NotGood     Boolean @default(false)
+  Question1NoKnowledge Boolean @default(false)
+  Question2Content     String  @db.VarChar(200)
+  Question2Yes         Boolean @default(false)
+  Question2No          Boolean @default(false)
+  Question2NotSure     Boolean @default(false)
 }

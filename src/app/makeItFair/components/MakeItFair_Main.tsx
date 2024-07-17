@@ -30,42 +30,35 @@ export default function MakeItFair_Main({ answerList }: any) {
                       const answerCount = answerList.filter(
                         ({ answer }: any) => answer === eachAnswer.answerValue
                       ).length;
-                      const answerPercent:number =
+
+                      const answerPercent: number =
                         (answerCount /
                           answerList.filter(({ answer }: any) =>
                             answer.includes("question1")
-                          ).length) *
-                        100;
+                          ).length) *100
+                       
+
+                      const widthPercent = "w-[" + answerPercent + "px]";
 
                       return (
                         <>
-                          <div className="flex flex-row border">
+                          <div className="flex flex-row border items-center">
                             <span className="w-[500px] block antialiased font-sans text-lg leading-normal text-blue-gray-900 font-semibold">
                               {eachAnswer.answerTitle}
                             </span>
-
-                            {/* <span className="w-[500px] block antialiased font-sans text-lg leading-normal text-blue-gray-900 font-semibold">
-                            {eachAnswer.answerValue}
-                          </span> */}
 
                             <span className="w-[200px] block antialiased font-sans text-sm text-blue-gray-600">
                               {answerCount}
                             </span>
 
-                            <span className="antialiased font-sans mb-1 block text-sm  text-blue-gray-600">
-                              {answerPercent.toString() + "%"}
+                            <span className="w-[60px] antialiased font-sans mb-1 block text-sm  text-blue-gray-600 border-0">
+                              {answerPercent.toString() + " %"}
                             </span>
 
-                            <div className="relative w-[100px] border">
-                              <div className="overflow-hidden h-2 text-xs flex rounded bg-blue-200">
-                                <span
-                                  className={
-                                    `w-[` +
-                                    answerPercent.toString() +
-                                    `px] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600`
-                                  }
-                                >percent</span>
-                              </div>
+                            <div className="w-[200px] h-[10px] borde-2">
+                              <div
+                                className={`${widthPercent} h-[10px] shadow-none  text-center whitespace-nowrap text-white justify-center bg-blue-600 border rounded-lg`}
+                              ></div>
                             </div>
                             <div className="flex flex-start bg-blue-gray-50 overflow-hidden w-full rounded-sm font-sans text-xs font-medium h-1">
                               <div className="flex justify-center items-center h-full bg-gradient-to-tr from-blue-600 to-blue-400 text-white"></div>
